@@ -1,7 +1,7 @@
 function autoInicioRelacionCliente(){
     
     $.ajax({
-        url:"http://129.151.116.123:8080/api/Client/all",
+        url:"http://168.138.247.22:80/api/Client/all",
         type:"GET",
         datatype:"JSON",
         success:function(respuesta){
@@ -15,15 +15,15 @@ function autoInicioRelacionCliente(){
     
     })
 }
-function autoInicioComputer(){
+function autoInicioSkate(){
 
     $.ajax({
-        url:"http://129.151.116.123:8080/api/Computer/all",
+        url:"http://168.138.247.22:80/api/Skate/all",
         type:"GET",
         datatype:"JSON",
         success:function(respuesta){
         
-            let $select = $("#select-Computer");
+            let $select = $("#select-skate");
             $.each(respuesta, function (id, name) {
                 $select.append('<option value='+name.id+'>'+name.name+'</option>');
          
@@ -43,7 +43,7 @@ function agregarReservation() {
             startDate: $("#startDate").val(),
             devolutionDate: $("#devolutionDate").val(),
             status: $("#status").val(),
-            Computer:{id: +$("#select-Computer").val()},
+            skate:{id: +$("#select-skate").val()},
             client:{idClient: +$("#select-client").val()},
             
         }
@@ -53,7 +53,7 @@ function agregarReservation() {
         $.ajax({
             type: "POST",
             contentType: "application/json",
-            url:"http://129.151.116.123:8080/api/Reservation/save",
+            url:"http://168.138.247.22:80/api/Reservation/save",
             //url: "http://localhost:8080/api/Reservation/save",
             data: dataToSend,
             datatype: "json",
@@ -81,7 +81,7 @@ function agregarReservation() {
 
 function listarReservation(){
     $.ajax({
-        url:"http://129.151.116.123:8080/api/Reservation/all",
+        url:"http://168.138.247.22:80/api/Reservation/all",
         //url: "http://localhost:8080/api/Reservation/all",
         type: "GET",
         datatype: "JSON",
@@ -108,7 +108,7 @@ function pintarRespuestaReservation(response){
         myTable+="<td>"+response[i].startDate+"</td>";
         myTable+="<td>"+response[i].devolutionDate+"</td>";
         myTable+="<td>"+response[i].status+"</td>";
-        myTable+="<td>"+response[i].Computer.name+"</td>";
+        myTable+="<td>"+response[i].skate.name+"</td>";
         myTable+="<td>"+response[i].client.name+"</td>";
         myTable+='<td><button  onclick="borrarReservation(' + response[i].idReservation + ')">Borrar Reserva!</button></td>';
         myTable+='<td><button  onclick="cargarDatosReservation(' + response[i].idReservation + ')">Editar Reserva!</button></td>';
@@ -132,7 +132,7 @@ function borrarReservation(idElemento) {
         {
             dataType: 'json',
             data: dataToSend,
-            url:"http://129.151.116.123:8080/api/Reservation/"+idElemento,
+            url:"http://168.138.247.22:80/api/Reservation/"+idElemento,
             //url: "http://localhost:8080/api/Reservation/" + idElemento,
             type: 'DELETE',
             contentType: "application/JSON",
@@ -153,7 +153,7 @@ function borrarReservation(idElemento) {
 function cargarDatosReservation(id) {
     $.ajax({
         dataType: 'json',
-        url:"http://129.151.116.123:8080/api/Reservation/"+id,
+        url:"http://168.138.247.22:80/api/Reservation/"+id,
         //url: "http://localhost:8080/api/Reservation/" + id,
         type: 'GET',
 
@@ -184,7 +184,7 @@ function actualizarReservation(idElemento) {
             startDate: $("#startDate").val(),
             devolutionDate: $("#devolutionDate").val(),
             status: $("#status").val(),
-            Computer:{id: +$("#select-Computer").val()},
+            skate:{id: +$("#select-skate").val()},
             client:{idClient: +$("#select-client").val()},
         }
 
@@ -194,7 +194,7 @@ function actualizarReservation(idElemento) {
             datatype: 'json',
             data: dataToSend,
             contentType: "application/JSON",
-            url:"http://129.151.116.123:808080/api/Reservation/update",
+            url:"http://168.138.247.22:80/api/Reservation/update",
             //url: "http://localhost:8080/api/Reservation/update",
             type: "PUT",
 

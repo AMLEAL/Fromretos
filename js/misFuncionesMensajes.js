@@ -1,7 +1,7 @@
 function autoInicioRelacionCliente(){
     
     $.ajax({
-        url:"http://129.151.116.123:8080/api/Client/all",
+        url:"http://168.138.247.22:80/api/Client/all",
         type:"GET",
         datatype:"JSON",
         success:function(respuesta){
@@ -15,15 +15,15 @@ function autoInicioRelacionCliente(){
     
     })
 }
-function autoInicioComputer(){
+function autoInicioSkate(){
 
     $.ajax({
-        url:"http://129.151.116.123:8080/api/Computer/all",
+        url:"http://168.138.247.22:80/api/Skate/all",
         type:"GET",
         datatype:"JSON",
         success:function(respuesta){
         
-            let $select = $("#select-Computer");
+            let $select = $("#select-skate");
             $.each(respuesta, function (id, name) {
                 $select.append('<option value='+name.id+'>'+name.name+'</option>');
          
@@ -37,7 +37,7 @@ function autoInicioComputer(){
 function autoInicioMensajes(){
     console.log("se esta ejecutando")
     $.ajax({
-        url:"http://129.151.116.123:8080/api/Message/all",
+        url:"http://168.138.247.22:80/api/Message/all",
         type:"GET",
         datatype:"JSON",
         success:function(respuesta){
@@ -56,7 +56,7 @@ function pintarRespuestaMensajes(respuesta){
         myTable+="<tr>";
         
         myTable+="<td>"+respuesta[i].messageText+"</td>";
-        myTable+="<td>"+respuesta[i].Computer.name+"</td>";
+        myTable+="<td>"+respuesta[i].skate.name+"</td>";
         myTable+="<td>"+respuesta[i].client.name+"</td>";
         myTable+="<td> <button onclick=' actualizarInformacionMensaje("+respuesta[i].idMessage+")'>Actualizar</button>";
         myTable+="<td> <button onclick='borrarMensaje("+respuesta[i].idMessage+")'>Borrar</button>";
@@ -76,7 +76,7 @@ function guardarInformacionMensajes(){
     let var2 = {
         
         messageText:$("#messagetext").val(),
-        Computer:{id: +$("#select-Computer").val()},
+        skate:{id: +$("#select-skate").val()},
         client:{idClient: +$("#select-client").val()},
 
      
@@ -89,7 +89,7 @@ function guardarInformacionMensajes(){
         dataType: 'JSON',
         data: JSON.stringify(var2),
         
-        url:"http://129.151.116.123:8080/api/Message/save",
+        url:"http://168.138.247.22:80/api/Message/save",
        
         
         success:function(response) {
@@ -114,7 +114,7 @@ function actualizarInformacionMensaje(idElemento){
     let myData={
         idMessage:idElemento,
         messageText:$("#messagetext").val(),
-        Computer:{id: +$("#select-Computer").val()},
+        skate:{id: +$("#select-skate").val()},
         client:{idClient: +$("#select-client").val()},
 
     
@@ -124,7 +124,7 @@ function actualizarInformacionMensaje(idElemento){
     console.log(myData);
     let dataToSend=JSON.stringify(myData);
     $.ajax({
-        url:"http://129.151.116.123:8080/api/Message/update",
+        url:"http://168.138.247.22:80/api/Message/update",
         type:"PUT",
         data:dataToSend,
         contentType:"application/JSON",
@@ -147,7 +147,7 @@ function borrarMensaje(idElemento){
     let dataToSend=JSON.stringify(myData);
     console.log(dataToSend);
     $.ajax({
-        url:"http://129.151.116.123:8080/api/Message/"+idElemento,
+        url:"http://168.138.247.22:80/api/Message/"+idElemento,
         type:"DELETE",
         data:dataToSend,
         contentType:"application/JSON",
