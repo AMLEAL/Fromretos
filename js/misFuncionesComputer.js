@@ -1,7 +1,7 @@
 function autoInicioCategoria(){
     console.log("se esta ejecutando")
     $.ajax({
-        url:"http://168.138.247.22:80/api/Category/all",
+        url:"http://129.151.116.123:8080/api/Category/all",
         type:"GET",
         datatype:"JSON",
         success:function(respuesta){
@@ -18,7 +18,7 @@ function autoInicioCategoria(){
 //Manejador GET
 function traerInformacionComputer() {
     $.ajax({
-        url:"http://168.138.247.22:80/api/Computer/all",
+        url:"http://129.151.116.123:8080/api/Computer/all",
         //url: "http://localhost:8080/api/Computer/all",
         type: "GET",
         datatype: "JSON",
@@ -61,7 +61,7 @@ function pintarRespuestaComputer(response){
 function cargarDatosComputer(id) {
     $.ajax({
         dataType: 'json',
-        url:"http://168.138.247.22:80/api/Computer/"+id,
+        url:"http://129.151.116.123:8080/api/Computer/"+id,
         //url: "http://localhost:8080/api/Computer/" + id,
         type: 'GET',
 
@@ -103,7 +103,7 @@ function agregarComputer() {
             $.ajax({
                 type: "POST",
                 contentType: "application/json",
-                url:"http://168.138.247.22:80/api/Computer/save",
+                url:"http://129.151.116.123:8080/api/Computer/save",
                 //url: "http://localhost:8080/api/Computer/save",
                 data: dataToSend,
                 datatype: 'json',
@@ -141,7 +141,7 @@ console.log(dataToSend);
         {
             dataType: 'json',
             data: dataToSend,
-            url:"http://168.138.247.22:80/api/Computer/"+idElemento,
+            url:"http://129.151.116.123:8080/api/Computer/"+idElemento,
             //url: "http://localhost:8080/api/Computer/" + idElemento,
             type: 'DELETE',
             contentType: "application/JSON",
@@ -180,7 +180,7 @@ function actualizar(idElemento) {
             datatype: 'json',
             data: dataToSend,
             contentType: "application/JSON",
-            url:"http://168.138.247.22:80/api/Computer/update",
+            url:"http://129.151.116.123:8080/api/Computer/update",
             //url: "http://localhost:8080/api/Computer/update",
             type: "PUT",
 
