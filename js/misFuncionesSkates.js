@@ -19,7 +19,7 @@ function autoInicioCategoria(){
 function traerInformacionSkate() {
     $.ajax({
         url:"http://129.151.116.123:8080/api/Skate/all",
-        //url: "http://localhost:80808080/api/Skate/all",
+        //url: "http://localhost:8080/api/Skate/all",
         type: "GET",
         datatype: "JSON",
         success: function (response) {
@@ -62,7 +62,7 @@ function cargarDatosSkate(id) {
     $.ajax({
         dataType: 'json',
         url:"http://129.151.116.123:8080/api/Skate/"+id,
-        //url: "http://localhost:80808080/api/Skate/" + id,
+        //url: "http://localhost:8080/api/Skate/" + id,
         type: 'GET',
 
         success: function (response) {
@@ -104,7 +104,7 @@ function agregarSkate() {
                 type: "POST",
                 contentType: "application/json",
                 url:"http://129.151.116.123:8080/api/Skate/save",
-                //url: "http://localhost:80808080/api/Skate/save",
+                //url: "http://localhost:8080/api/Skate/save",
                 data: dataToSend,
                 datatype: 'json',
 
@@ -142,7 +142,7 @@ console.log(dataToSend);
             dataType: 'json',
             data: dataToSend,
             url:"http://129.151.116.123:8080/api/Skate/"+idElemento,
-            //url: "http://localhost:80808080/api/Skate/" + idElemento,
+            //url: "http://localhost:8080/api/Skate/" + idElemento,
             type: 'DELETE',
             contentType: "application/JSON",
             success: function (response) {
@@ -181,7 +181,7 @@ function actualizar(idElemento) {
             data: dataToSend,
             contentType: "application/JSON",
             url:"http://129.151.116.123:8080/api/Skate/update",
-            //url: "http://localhost:80808080/api/Skate/update",
+            //url: "http://localhost:8080/api/Skate/update",
             type: "PUT",
 
             success: function (response) {
