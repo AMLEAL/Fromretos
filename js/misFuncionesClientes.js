@@ -109,7 +109,7 @@ function borrarCliente(idElemento){
     let dataToSend=JSON.stringify(myData);
     console.log(dataToSend);
     $.ajax({
-        url:"http://129.151.116.123:8080/api/Client/"+idElemento,
+        url:`http://129.151.116.123:8080/api/Client/${idElemento}`,
         type:"DELETE",
         data:dataToSend,
         contentType:"application/JSON",
