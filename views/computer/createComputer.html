@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Computador</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/layout/LayoutMenu.js"></script>
+    <script src="/js/computer/createComputer.js"></script>
+    <script>
+        function pageRedirect() {
+            window.location.href = "listComputer.html";
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <layout-menu></layout-menu><br>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/privado.html">Inicio</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Crear Computador</li>
+            </ol>
+        </nav>
+        <h4>Creación de Computadores</h4><br>
+        <div class="alert alert-success" role="alert" id="alertSuccess" style="display: none;">
+            Registro Creado Exitosamente!
+        </div>
+        <div class="row g-3">
+            <div class="col-md-6">
+                <label for="name">Nombre</label>
+                <input type="text" class="form-control" id="name" placeholder="Nombre" minlength="5" maxlength="45">
+            </div>
+            <div class="col-md-6">
+                <label for="brand">Marca</label>
+                <input type="text" class="form-control" id="brand" placeholder="Marca" minlength="5" maxlength="45">
+            </div>
+            <div class="col-md-6">
+                <label for="name">Año</label>
+                <input type="number" class="form-control" id="year" placeholder="Año"
+                    onKeyDown="if(this.value.length==4) return false;">
+            </div>
+            <div class="col-md-6">
+                <label for="inputState">Categoría</label>
+                <select id="category_id" class="form-control" required></select>
+            </div>
+            <div class="col-md-12">
+                <label for="name">Descripción</label>
+                <textarea id="description" placeholder="Descripción Computador" class="md-textarea form-control"
+                    rows="3" maxlength="250"></textarea>
+            </div><br>
+            <div class="col-md-6">
+                <button type="button" class="btn btn-primary" onclick="agregar()" id="agregar">Crear
+                    Computador</button>
+                <button class="btn btn-outline-secondary" onclick="pageRedirect()" id="closeCreate">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

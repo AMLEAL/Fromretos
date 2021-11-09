@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado Categorías</title>
+    <base href="/" />
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/layout/LayoutMenu.js"></script>
+    <script src="/js/category/listCategory.js"></script>
+    <script src="/js/category/deleteCategory.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <layout-menu></layout-menu><br>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="privado.html">Inicio</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Listado de Categorías</li>
+            </ol>
+        </nav>
+        <div class="row g-3">
+            <div class="col-md-6"></div>
+            <div class="col-md-6">
+                    <a style="float:right" href="/views/category/createCategory.html" class="btn btn-outline-secondary" role="button">+ Agregar Categoría</a>
+                </div>
+            </div>       
+            <legend><b>Listado de Categorías</b></legend>
+            <div id="listado"></div>
+            <div id="listadoComputadores"></div>
+        </div>
+    </div>
+</body>
+
+</html>

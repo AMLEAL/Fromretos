@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/layout/LayoutMenu.js"></script>
+    <script src="/js/client/createClient.js"></script>
+     <script>
+        function pageRedirect() {
+          window.location.href = "listClient.html";
+        }      
+    </script> 
+</head>
+
+<body>
+    <div class="container">
+        <layout-menu></layout-menu><br>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/privado.html">Inicio</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Crear Cliente</li>
+            </ol>
+        </nav>
+        <h3>Formulario Registro Cliente</h3>
+        <div class="alert alert-success" role="alert" id="alertSuccess" style="display: none;">
+            Registro Creado Exitosamente!
+        </div><br>
+        <div class="form-row">            
+            <div class="col-md-6 mb-3">
+                <label for="name"><b>Nombres</b></label>
+                <input type="text" class="form-control" id="name" placeholder="Nombres Completos" maxlength="250">
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="Email"><b>Correo</b></label>
+                <input type="email" class="form-control" id="email" placeholder="Correo" required maxlength="45">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-md-6 mb-3">
+                <label for="age"><b>Edad</b></label>
+                <input type="number" class="form-control" id="age" placeholder="Edad" onKeyDown="if(this.value.length==2) return false;" >
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="age"><b>Contraseña</b></label>
+                <input type="password" class="form-control" id="password" placeholder="Contraseña" maxlength="45">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-md-3 mb-3"></div>
+            <div class="col-md-6 mb-3">
+                <button class="btn btn-primary" onclick="addClient()">Crear Cliente</button>
+                <button class="btn btn-outline-secondary"onclick="pageRedirect()">Cerrar</button>
+            </div>
+            <div class="col-md-3 mb-3"></div>
+        </div>
+    </div>
+</body>
+
+</html>
