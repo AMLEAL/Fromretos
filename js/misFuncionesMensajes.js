@@ -15,15 +15,15 @@ function autoInicioRelacionCliente(){
     
     })
 }
-function autoInicioSkate(){
+function autoInicioComputer(){
 
     $.ajax({
-        url:"http://168.138.247.22:80/api/Skate/all",
+        url:"http://168.138.247.22:80/api/Computer/all",
         type:"GET",
         datatype:"JSON",
         success:function(respuesta){
         
-            let $select = $("#select-skate");
+            let $select = $("#select-computer");
             $.each(respuesta, function (id, name) {
                 $select.append('<option value='+name.id+'>'+name.name+'</option>');
          
@@ -56,7 +56,7 @@ function pintarRespuestaMensajes(respuesta){
         myTable+="<tr>";
         
         myTable+="<td>"+respuesta[i].messageText+"</td>";
-        myTable+="<td>"+respuesta[i].skate.name+"</td>";
+        myTable+="<td>"+respuesta[i].Computer.name+"</td>";
         myTable+="<td>"+respuesta[i].client.name+"</td>";
         myTable+="<td> <button onclick=' actualizarInformacionMensaje("+respuesta[i].idMessage+")'>Actualizar</button>";
         myTable+="<td> <button onclick='borrarMensaje("+respuesta[i].idMessage+")'>Borrar</button>";
@@ -76,7 +76,7 @@ function guardarInformacionMensajes(){
     let var2 = {
         
         messageText:$("#messagetext").val(),
-        skate:{id: +$("#select-skate").val()},
+        computer:{id: +$("#select-computer").val()},
         client:{idClient: +$("#select-client").val()},
 
      
@@ -114,7 +114,7 @@ function actualizarInformacionMensaje(idElemento){
     let myData={
         idMessage:idElemento,
         messageText:$("#messagetext").val(),
-        skate:{id: +$("#select-skate").val()},
+        computer:{id: +$("#select-computer").val()},
         client:{idClient: +$("#select-client").val()},
 
     

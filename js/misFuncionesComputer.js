@@ -16,22 +16,22 @@ function autoInicioCategoria(){
     })
 }
 //Manejador GET
-function traerInformacionSkate() {
+function traerInformacionComputer() {
     $.ajax({
-        url:"http://168.138.247.22:80/api/Skate/all",
-        //url: "http://localhost:8080/api/Skate/all",
+        url:"http://168.138.247.22:80/api/Computer/all",
+        //url: "http://localhost:8080/api/Computer/all",
         type: "GET",
         datatype: "JSON",
         success: function (response) {
             console.log(response);
-            pintarRespuestaSkate(response);
+            pintarRespuestaComputer(response);
         }
 
     });
 
 }
 
-function pintarRespuestaSkate(response){
+function pintarRespuestaComputer(response){
 
     let myTable="<table>"
     myTable+="<tr>";
@@ -49,20 +49,20 @@ function pintarRespuestaSkate(response){
         myTable+="<td>" + response[i].year + "</td>";
         myTable+="<td>" + response[i].description + "</td>";
         myTable+="<td>" + response[i].category.name + "</td>";
-        myTable+='<td><button class = "botonSkate2" onclick="borrar(' + response[i].id + ')">Borrar Skate!</button></td>';
-        myTable+='<td><button class = "botonSkate2" onclick="cargarDatosSkate(' + response[i].id + ')">Editar Skate!</button></td>';
-        myTable+='<td><button class = "botonSkate2" onclick="actualizar(' + response[i].id + ')">Actualizar Skate!</button></td>';
+        myTable+='<td><button class = "botonComputer2" onclick="borrar(' + response[i].id + ')">Borrar Computer!</button></td>';
+        myTable+='<td><button class = "botonComputer2" onclick="cargarDatosComputer(' + response[i].id + ')">Editar Computer!</button></td>';
+        myTable+='<td><button class = "botonComputer2" onclick="actualizar(' + response[i].id + ')">Actualizar Computer!</button></td>';
         myTable+="</tr>";
     }
     myTable+="</table>";
-    $("#miListaSkate").html(myTable);
+    $("#miListaComputer").html(myTable);
 }
 //Capturar informacion para Actualizar
-function cargarDatosSkate(id) {
+function cargarDatosComputer(id) {
     $.ajax({
         dataType: 'json',
-        url:"http://168.138.247.22:80/api/Skate/"+id,
-        //url: "http://localhost:8080/api/Skate/" + id,
+        url:"http://168.138.247.22:80/api/Computer/"+id,
+        //url: "http://localhost:8080/api/Computer/" + id,
         type: 'GET',
 
         success: function (response) {
@@ -83,7 +83,7 @@ function cargarDatosSkate(id) {
     });
 }
 
-function agregarSkate() {
+function agregarComputer() {
 
     if($("#name2").val().length == 0 || $("#brand").val().length == 0 || $("#year").val().length == 0 || $("#description2").val().length == 0){
        alert("Todos los campos son obligatorios")
@@ -103,8 +103,8 @@ function agregarSkate() {
             $.ajax({
                 type: "POST",
                 contentType: "application/json",
-                url:"http://168.138.247.22:80/api/Skate/save",
-                //url: "http://localhost:8080/api/Skate/save",
+                url:"http://168.138.247.22:80/api/Computer/save",
+                //url: "http://localhost:8080/api/Computer/save",
                 data: dataToSend,
                 datatype: 'json',
 
@@ -141,13 +141,13 @@ console.log(dataToSend);
         {
             dataType: 'json',
             data: dataToSend,
-            url:"http://168.138.247.22:80/api/Skate/"+idElemento,
-            //url: "http://localhost:8080/api/Skate/" + idElemento,
+            url:"http://168.138.247.22:80/api/Computer/"+idElemento,
+            //url: "http://localhost:8080/api/Computer/" + idElemento,
             type: 'DELETE',
             contentType: "application/JSON",
             success: function (response) {
                 console.log(response);
-                $("#miListaSkate").empty();
+                $("#miListaComputer").empty();
 
                 alert("se ha Eliminado Correctamente!")
             },
@@ -180,14 +180,14 @@ function actualizar(idElemento) {
             datatype: 'json',
             data: dataToSend,
             contentType: "application/JSON",
-            url:"http://168.138.247.22:80/api/Skate/update",
-            //url: "http://localhost:8080/api/Skate/update",
+            url:"http://168.138.247.22:80/api/Computer/update",
+            //url: "http://localhost:8080/api/Computer/update",
             type: "PUT",
 
             success: function (response) {
                 console.log(response);
-                $("#miListaSkate").empty();
-                listarSkate();
+                $("#miListaComputer").empty();
+                listarComputer();
                 alert("se ha Actualizado Correctamente!")
 
                 //Limpiar Campos

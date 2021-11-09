@@ -15,15 +15,15 @@ function autoInicioRelacionCliente(){
     
     })
 }
-function autoInicioSkate(){
+function autoInicioComputer(){
 
     $.ajax({
-        url:"http://168.138.247.22:80/api/Skate/all",
+        url:"http://168.138.247.22:80/api/Computer/all",
         type:"GET",
         datatype:"JSON",
         success:function(respuesta){
         
-            let $select = $("#select-skate");
+            let $select = $("#select-computer");
             $.each(respuesta, function (id, name) {
                 $select.append('<option value='+name.id+'>'+name.name+'</option>');
          
@@ -43,7 +43,7 @@ function agregarReservation() {
             startDate: $("#startDate").val(),
             devolutionDate: $("#devolutionDate").val(),
             status: $("#status").val(),
-            skate:{id: +$("#select-skate").val()},
+            computer:{id: +$("#select-computer").val()},
             client:{idClient: +$("#select-client").val()},
             
         }
@@ -99,7 +99,7 @@ function pintarRespuestaReservation(response){
         myTable+="<td>Fecha Inicio</td>";
         myTable+="<td>fecha Devolucion</td>";
         myTable+="<td>Estado</td>";
-        myTable+="<td>Patineta</td>";
+        myTable+="<td>Computer</td>";
         myTable+="<td>Cliente</td>";
      "</tr>";
       
@@ -108,7 +108,7 @@ function pintarRespuestaReservation(response){
         myTable+="<td>"+response[i].startDate+"</td>";
         myTable+="<td>"+response[i].devolutionDate+"</td>";
         myTable+="<td>"+response[i].status+"</td>";
-        myTable+="<td>"+response[i].skate.name+"</td>";
+        myTable+="<td>"+response[i].computer.name+"</td>";
         myTable+="<td>"+response[i].client.name+"</td>";
         myTable+='<td><button  onclick="borrarReservation(' + response[i].idReservation + ')">Borrar Reserva!</button></td>';
         myTable+='<td><button  onclick="cargarDatosReservation(' + response[i].idReservation + ')">Editar Reserva!</button></td>';
@@ -184,7 +184,7 @@ function actualizarReservation(idElemento) {
             startDate: $("#startDate").val(),
             devolutionDate: $("#devolutionDate").val(),
             status: $("#status").val(),
-            skate:{id: +$("#select-skate").val()},
+            computer:{id: +$("#select-computer").val()},
             client:{idClient: +$("#select-client").val()},
         }
 
